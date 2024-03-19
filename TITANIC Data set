@@ -1,0 +1,8 @@
+library(ggplot2)
+data(Titanic)
+df <- as.data.frame(Titanic)
+ggplot(df, aes(Class, Freq, fill = Survived)) + geom_bar(stat = "identity", position = "dodge") + labs(title = "Survival based on passenger class", x = "Passenger Class", y = "Count") +
+  theme_minimal()
+ggplot(df, aes(Class, Freq, fill = Sex)) + geom_bar(stat = "identity", position = "dodge") + facet_wrap(~Survived) +
+  labs(title = "Survival based on passenger class and gender", x = "Passenger Class", y = "Count") +
+  theme_minimal()
